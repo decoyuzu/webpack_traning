@@ -4,13 +4,13 @@ h1 {
     color: blue;
     &:hover {
         transform: translateX(50px);
-        color: red;
+        color: tomato;
     }
 }
 
 .bg {
     background-image: url(./images/download.jpeg);
     background-size: cover;
-    width: 100px;
+    width: 1000px;
     height: 100px;
 }

@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { Template } = require('webpack');
 
 module.exports = ({ outputFile, assetFile }) => ({
-    entry: { app: './src/app.js' },
+    entry: { app: './src/app.js', sub: './src/sub.js' },
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: `${outputFile}.js`,
@@ -61,4 +61,5 @@ module.exports = ({ outputFile, assetFile }) => ({
             fix: true
         })
     ],
+    target: ['web', 'es5']
 });
