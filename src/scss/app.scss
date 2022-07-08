@@ -1,15 +1,15 @@
 h1 {
     font-size: 2rem;
     transition: all 0.5s;
-    color: blue;
+    color: pink;
     &:hover {
         transform: translateX(50px);
-        color: tomato;
+        color: red;
     }
 }
 
 .bg {
-    background-image: url(./images/download.jpeg);
+    background-image: url(~images/download.jpeg);
     background-size: cover;
     width: 1000px;
     height: 100px;

@@ -1,21 +1,23 @@
 {
     "env": {
         "browser": true,
-        "es2017": true
+        "es2017": true,
+        "jquery": true,
     },
 
     "parserOptions": {
-        "extends": "eslint:recommended",
         "parser": "babel-eslint",
-        // "ecmaVersion": 2017,
+        "allowImportExportEverywhere": true,
+        "extends": "eslint:recommended",
         "sourceType": "module",
         "globals": {
             "jquery": "readonly",
             "$": "readonly",
+            "utils": "readonly"
         }
     },
     "rules": {
-        "no-undef": "warn",
+        // "no-undef": "warn",
         "semi": [
             "error", "always", { "omitLastInOneLineBlock": true }
         ]
