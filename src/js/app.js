@@ -1,4 +1,5 @@
 setTimeout(() => {
+
     import ('js/sub')
 }, 2000);
 import '@scss/app';

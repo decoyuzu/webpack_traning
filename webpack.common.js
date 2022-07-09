@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { Template } = require('webpack');
 const { ProvidePlugin } = require('webpack');
+// const PluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 
 module.exports = ({ outputFile, assetFile }) => ({
     entry: { app: './src/js/app.js', sub: './src/js/sub.js' },
@@ -19,9 +20,9 @@ module.exports = ({ outputFile, assetFile }) => ({
         rules: [{
                 test: /\.js$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
-                use: [
-                    'babel-loader',
-                ]
+                use: {
+                    loader: 'babel-loader',
+                }
             },
             {
                 test: /\.scss$/,
@@ -57,16 +58,16 @@ module.exports = ({ outputFile, assetFile }) => ({
             inject: 'body', //
         }),
         new MiniCssExtractPlugin(),
-        new ESLintPlugin({
-            extensions: ['.js'],
-            exclude: 'node_modules',
-            fix: true
-        }),
+        // new ESLintPlugin({
+        //     extensions: ['.js'],
+        //     exclude: 'node_modules',
+        //     fix: true
+        // }),
         new ProvidePlugin({
             jQuery: 'jquery',
             $: 'jquery',
             utils: [path.resolve(__dirname, 'src/js/utils'), 'default'],
-        }),
+        })
     ],
     optimization: {
         splitChunks: {

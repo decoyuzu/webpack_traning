@@ -26,8 +26,15 @@ module.exports = () => merge(commonConf({ outputFile, assetFile }), {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, './src/index.html'),
-            filename: '[name].html', //
+            // filename: 'app.html', //
             inject: 'body', //
+            chunks: ['app'],
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, './src/other.html'),
+            filename: 'other.html',
+            inject: 'body', //
+            chunks: ['sub'],
         }),
     ],
 });
