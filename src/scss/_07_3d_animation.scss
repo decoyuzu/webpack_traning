@@ -1,0 +1,60 @@
+$cWhite: white;
+$cBlack: black;
+#container {
+    text-align: center;
+}
+
+.btn {
+    background-color: $cWhite;
+    color: $cBlack;
+    border: 1px solid $cBlack;
+    padding: 10px 40px;
+    margin: 50px 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    // &:hover {
+    //     background-color: $cBlack;
+    //     color: $cWhite;
+    // }
+}
+
+.cover-3d {
+    position: relative;
+    // overflow: hidden;
+    z-index: 1;
+    // ↓追加
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    // perspective-origin: -100% 50%;
+    perspective-origin: top left;
+    // ↑追加
+    span {
+        transform: translateZ(20px);
+    }
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $cblack;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateX(90deg);
+        transform-origin: top center;
+        transition: all 0.3s ease-in;
+        opacity: 0;
+        // z-index: -1;
+    }
+    &:hover {
+        .btn {
+            color: $cwhite;
+            z-index: 1;
+        }
+        &::before {
+            transform: none;
+            opacity: 1;
+        }
+    }
+}

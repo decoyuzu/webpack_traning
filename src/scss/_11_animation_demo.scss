@@ -1,0 +1,46 @@
+$cBlack: black;
+body {
+    text-align: center;
+}
+
+@mixin animation( $name, $duration: 1s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: forwards) {
+    animation: {
+        name: $name;
+        duration: $duration;
+        timing-function: $timing-function;
+        delay: $delay;
+        iteration-count: $iteration-count;
+        direction: $direction;
+        fill-mode: $fill-mode;
+    }
+}
+
+.rect {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: $cBlack;
+    @include animation($name: sk-bouncedelay, $iteration-count: infinite, $fill-mode: none);
+    // animation: sk-bouncedelay 1.4s;
+    // animation-timing-function: ease;
+    // animation-delay: 3s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate;
+    // animation-fill-mode: forwards;
+    // transform: scale(0);
+    // animation-play-state: paused;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+@keyframes sk-bouncedelay {
+    0% {
+        transform: scale(0);
+        background-color: black;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

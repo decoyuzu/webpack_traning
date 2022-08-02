@@ -5,7 +5,8 @@
         "@scss":["scss"],
         "scss":["scss"],
         "js":["js"],
-        "images":["images"]
+        "images":["images"],
+        "@imgs/*":["src/images/*"]
       }
     }
   }

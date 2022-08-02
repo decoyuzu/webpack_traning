@@ -1,16 +1,28 @@
-h1 {
-    font-size: 2rem;
-    transition: all 0.5s;
-    color: pink;
-    &:hover {
-        transform: translateX(50px);
-        color: red;
-    }
-}
-
-.bg {
-    background-image: url(~images/download.jpeg);
-    background-size: cover;
-    width: 1000px;
-    height: 100px;
-}
+@charset "UTF-8";
+@import "color_code";
+@import "mixin";
+// @import "appear";
+// @import "_01_css_sass.scss";
+// @import "_02_box_shadow.scss";
+// @import "_03_test_btn.scss";
+// @import "_04_transform";
+// @import "_05_position_z_index";
+// @import "_06_slide";
+// @import "_07_3d_animation";
+// @import "_08_3d_animation_test";
+// @import "_09_layout_matome";
+// @import "_10_roader";
+// @import "_11_animation_demo";
+// @import "_12_selector";
+// @import "13_roader_for";
+// @import "14_animation_test";
+// @import "15_menu_icon";
+// @import "16_moji_animation";
+// @import "17_fadein_animation";
+// @import "18_images";
+// @import "19_slide_animation";
+// @import "20_slide_animation";
+// @import "30_javascript";
+// @import "40_dom";
+// @import "41_dom_event";
+@import "42_dom_content_loaded";

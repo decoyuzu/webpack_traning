@@ -13,7 +13,7 @@ module.exports = () => merge(commonConf({ outputFile, assetFile }), {
     mode: 'production',
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, './src/index.html'),
+            template: path.join(__dirname, './src/html/index.html'),
             filename: 'app.html',
             inject: 'body',
             minify: {

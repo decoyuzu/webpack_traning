@@ -1,0 +1,49 @@
+#container {
+    padding: 1rem;
+    background-color: gray;
+    position: relative;
+}
+
+div {
+    font-weight: 600;
+    padding: 0.5rem;
+    font-size: 1.1em;
+    width: 150px;
+    height: 150px;
+    box-shadow: 7px 7px 0 0 #000;
+    position: absolute;
+}
+
+.div-1 {
+    top: 0;
+    left: 0;
+    background: orange;
+    position: absolute;
+    z-index: 20;
+}
+
+.div-2 {
+    // display: none;
+    background: tomato;
+    position: absolute;
+    z-index: 30;
+}
+
+.div-3 {
+    // display: none;
+    top: 40px;
+    left: 40px;
+    background: teal;
+    z-index: auto;
+    height: 1000px;
+}
+
+.div-4 {
+    // display: none;
+    width: 80px;
+    height: 80px;
+    background-color: violet;
+    z-index: 50;
+    position: sticky;
+    top: 30px;
+}

@@ -8,12 +8,12 @@ const { ProvidePlugin } = require('webpack');
 // const PluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 
 module.exports = ({ outputFile, assetFile }) => ({
-    entry: { app: './src/js/app.js', sub: './src/js/sub.js' },
+    entry: { app: './src/js/app.js' },
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: `${outputFile}.js`,
         // asset/resourceのファイル名の設定
-        assetModuleFilename: './images/[name][ext]',
+        assetModuleFilename: './src/images/[name][ext]',
         chunkFilename: `${outputFile}.js`
     },
     module: {
@@ -25,12 +25,23 @@ module.exports = ({ outputFile, assetFile }) => ({
                 }
             },
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                            sourceMap: true,
+                        }
+                    },
                     'postcss-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
                 ]
             },
             {
@@ -41,7 +52,7 @@ module.exports = ({ outputFile, assetFile }) => ({
                 test: /\.(jpe?g|gif|png|svg|mp4|woff2?|ttf|eot)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: `./images/${assetFile}[ext]`,
+                    filename: `./src/images/${assetFile}[ext]`,
                 },
             },
             {
@@ -53,11 +64,13 @@ module.exports = ({ outputFile, assetFile }) => ({
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, './src/index.html'),
+            template: path.join(__dirname, './src/html/index.html'),
             filename: `${outputFile}.html`, //
             inject: 'body', //
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        }),
         // new ESLintPlugin({
         //     extensions: ['.js'],
         //     exclude: 'node_modules',
@@ -83,7 +96,7 @@ module.exports = ({ outputFile, assetFile }) => ({
                 utils: {
                     name: "utils",
                     test: /src[\\/]js[\\/]utils/,
-                    chunks: 'async',
+                    // chunks: 'async',
                 },
                 default: false
             },
@@ -98,5 +111,5 @@ module.exports = ({ outputFile, assetFile }) => ({
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
 
     },
-    target: ['web', 'es5']
+    target: "web"
 });
