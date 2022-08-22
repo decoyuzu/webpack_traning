@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { Template } = require('webpack');
 const { ProvidePlugin } = require('webpack');
-// const PluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 
 module.exports = ({ outputFile, assetFile }) => ({
     entry: { app: './src/js/app.js' },
