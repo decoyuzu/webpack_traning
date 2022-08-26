@@ -62,11 +62,11 @@ module.exports = ({ outputFile, assetFile }) => ({
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, './src/html/index.html'),
-            filename: `${outputFile}.html`, //
-            inject: 'body', //
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, './src/html/index.html'),
+        //     filename: `${outputFile}.html`, //
+        //     inject: 'body', //
+        // }),
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),

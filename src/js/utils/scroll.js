@@ -16,8 +16,6 @@ export class ScrollObserver {
         const callback = function(entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // const ta = new TextAnimation(entry.target);
-                    // ta.animate();
                     this.cb(entry.target, true);
                     if (this.once) {
                         observer.unobserve(entry.target);
